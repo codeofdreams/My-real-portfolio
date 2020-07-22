@@ -1,12 +1,12 @@
-const spans = document.querySelectorAll("h1 span");
-spans.forEach((span) =>
-  span.addEventListener("mouseover", function (e) {
+const spans = document.querySelectorAll("h1 span")
+spans.forEach(span =>
+  span.addEventListener("mouseover", function(e) {
     span.classList.add("animated", "rubberBand");
   })
 );
-spans.forEach((span) =>
-  span.addEventListener("mouseout", function (e) {
-    span.classList.add("animated", "rubberBand");
+spans.forEach(span =>
+  span.addEventListener("mouseout", function(e) {
+    span.classList.remove("animated", "rubberBand");
   })
 );
 
@@ -42,13 +42,13 @@ fromTo(
   { width: "calc(70% - 6px)", ease: Power4.easeOut }
 );
 
-const controller = new ScrollMagic.controller();
+const contoller = new ScrollMagic.Controller();
 const scene = new ScrollMagic.Scene({
   triggerElement: '.skills',
   triggerHook: 0,
 })
   .setTween(tl)
-  .addTo(controller);
+  .addTo(contoller);
 
 const showRequiredCategory = event => {
   const getId = event.id;
@@ -61,4 +61,14 @@ const showRequiredCategory = event => {
 
   event.classList.add("active");
   const getCategory = document.querySelector(".category-${getId}");
+  const categories = document.querySelectorAll('div[class ^= "category-"]')
+  for(i=0; i<categories.length; i++) {
+    if(categories[i].hasAttribute('class')) {
+        categories[i].classList.remove('showCategory')
+        categories[i].classList.add('showCategory')
+    } 
+  }
+
+  getCategory.classList.remove('hideCategory')
+  getCategory.classList.add('showCategory')
 };
