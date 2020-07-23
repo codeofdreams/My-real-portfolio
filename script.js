@@ -23,19 +23,19 @@ tl.fromTo(
   { width: "calc(0% - 6px)" },
   { width: "calc(90% - 6px)", ease: Power4.easeOut }
 );
-fromTo(
+tl.fromTo(
   cssBar,
   0.75,
   { width: "calc(0% - 6px)" },
   { width: "calc(95% - 6px)", ease: Power4.easeOut }
 );
-fromTo(
+tl.fromTo(
   jsBar,
   0.75,
   { width: "calc(0% - 6px)" },
   { width: "calc(75% - 6px)", ease: Power4.easeOut }
 );
-fromTo(
+tl.fromTo(
   reactBar,
   0.75,
   { width: "calc(0% - 6px)" },
